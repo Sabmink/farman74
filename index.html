@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="Farman_74/styles.css">
 </head>
 <body>
+    <div class="nav">
+        <div id="home-tab" class="tab" onclick="scrollToSection('greeting')">Home</div>
+        <div id="program-tab" class="tab" onclick="scrollToSection('itinerary')">Program</div>
+    </div>
     <div id="greeting" class="container greeting">
         <h1>Mahnwache</h1>
         <h2>zum 10. Jahrestag des Genozids an den Jesiden</h2>
@@ -68,18 +72,26 @@
         window.addEventListener('scroll', function() {
             var greeting = document.getElementById('greeting');
             var scrollY = window.scrollY || window.pageYOffset;
-
-            // Adjust the threshold as needed
             var threshold = window.innerHeight / 2;
+            var homeTab = document.getElementById('home-tab');
+            var programTab = document.getElementById('program-tab');
 
             if (scrollY > threshold) {
                 greeting.style.opacity = 0;
                 greeting.style.pointerEvents = 'none';
+                homeTab.classList.remove('active');
+                programTab.classList.add('active');
             } else {
                 greeting.style.opacity = 1;
                 greeting.style.pointerEvents = 'auto';
+                homeTab.classList.add('active');
+                programTab.classList.remove('active');
             }
         });
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
