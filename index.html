@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Farman_74/styles.css">
 </head>
 <body>
-    <div id="greeting" class="container">
+    <div id="greeting" class="container greeting">
         <h1>Mahnwache</h1>
         <h2>zum 10. Jahrestag des Genozids an den Jesiden</h2>
         <p>Überlebende erinnern.<br>
@@ -19,10 +19,9 @@
         <h4><u>03.08.2024 – Gedenktag – Überlebende erinnern </u></h4>
         <p>ab 14:3o Uhr<br>
         Weitere Einzelheiten zum Programm folgen.</p>
-        <button onclick="scrollToItinerary()">Mehr erfahren</button>
     </div>
 
-    <div id="itinerary" class="container">
+    <div id="itinerary" class="container itinerary">
         <h3>02.08.2024 – Stille Mahnwache</h3>
         <p>ab 18:oo Uhr - Aufstellen und Entzünden von Kerzen</p>
 
@@ -54,9 +53,22 @@
     </div>
 
     <script>
-        function scrollToItinerary() {
-            document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth' });
-        }
+        window.addEventListener('scroll', function() {
+            var greeting = document.getElementById('greeting');
+            var itinerary = document.getElementById('itinerary');
+            var scrollY = window.scrollY || window.pageYOffset;
+
+            // Adjust the threshold as needed
+            var threshold = window.innerHeight / 2;
+
+            if (scrollY > threshold) {
+                greeting.style.opacity = 0;
+                greeting.style.pointerEvents = 'none';
+            } else {
+                greeting.style.opacity = 1;
+                greeting.style.pointerEvents = 'auto';
+            }
+        });
     </script>
 </body>
 </html>
