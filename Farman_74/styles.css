@@ -19,8 +19,8 @@ body {
     top: 0;
     left: 0;
     display: flex;
-    background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
+    background: none;
 }
 
 .tab {
@@ -47,11 +47,11 @@ body {
 }
 
 .greeting {
-    margin-top: 20vh; /* Adjust as needed to vertically center */
+    margin-top: 10vh; /* Adjust as needed to reduce empty space */
 }
 
 .itinerary {
-    margin-top: 100vh;
+    margin-top: 90vh; /* Adjust as needed to reduce empty space */
     display: flex;
     flex-direction: column;
     align-items: center;
