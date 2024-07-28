@@ -68,8 +68,12 @@ body {
     margin: 20px 0;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, {
     color: black; /* Change greeting text to black */
+}
+
+h2 {
+  color: blue; 
 }
 
 p {
